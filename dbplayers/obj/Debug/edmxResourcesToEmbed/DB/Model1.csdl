@@ -1,0 +1,468 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="playersdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agency">
+    <Key>
+      <PropertyRef Name="ID_agency" />
+    </Key>
+    <Property Name="ID_agency" Type="Int32" Nullable="false" />
+    <Property Name="Name_agency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Agency" FromRole="Agency" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Cityes">
+    <Key>
+      <PropertyRef Name="ID_city" />
+    </Key>
+    <Property Name="ID_city" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_country" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Countryes" Relationship="Self.FK_Cityes_Countryes" FromRole="Cityes" ToRole="Countryes" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Cityes" FromRole="Cityes" ToRole="Clubs" />
+  </EntityType>
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="ID_club" />
+    </Key>
+    <Property Name="ID_club" Type="Int32" Nullable="false" />
+    <Property Name="Name_club" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_coach" Type="Int32" Nullable="false" />
+    <Property Name="ID_city" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cityes" Relationship="Self.FK_Clubs_Cityes" FromRole="Clubs" ToRole="Cityes" />
+    <NavigationProperty Name="Coaches" Relationship="Self.FK_Clubs_Coaches" FromRole="Clubs" ToRole="Coaches" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Clubs" FromRole="Clubs" ToRole="Players" />
+    <Property Name="Photo_club" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Coaches">
+    <Key>
+      <PropertyRef Name="ID_coach" />
+    </Key>
+    <Property Name="ID_coach" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_place_birth" Type="Int32" Nullable="false" />
+    <Property Name="ID_nation" Type="Int32" Nullable="false" />
+    <Property Name="Date_birth" Type="DateTime" Precision="0" />
+    <Property Name="Contract_started" Type="DateTime" Precision="0" />
+    <Property Name="Contract_date" Type="DateTime" Precision="0" />
+    <Property Name="ID_game_layout" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Coaches" FromRole="Coaches" ToRole="Clubs" />
+    <NavigationProperty Name="Game_layouts" Relationship="Self.FK_Coaches_Game_layouts" FromRole="Coaches" ToRole="Game_layouts" />
+    <NavigationProperty Name="Nations" Relationship="Self.FK_Coaches_Nations" FromRole="Coaches" ToRole="Nations" />
+    <NavigationProperty Name="Place_birth" Relationship="Self.FK_Coaches_Place_birth" FromRole="Coaches" ToRole="Place_birth" />
+  </EntityType>
+  <EntityType Name="Countryes">
+    <Key>
+      <PropertyRef Name="ID_country" />
+    </Key>
+    <Property Name="ID_country" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Cityes" Relationship="Self.FK_Cityes_Countryes" FromRole="Countryes" ToRole="Cityes" />
+  </EntityType>
+  <EntityType Name="Game_layouts">
+    <Key>
+      <PropertyRef Name="ID_game_layout" />
+    </Key>
+    <Property Name="ID_game_layout" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Game_layouts" FromRole="Game_layouts" ToRole="Coaches" />
+  </EntityType>
+  <EntityType Name="National_teams">
+    <Key>
+      <PropertyRef Name="ID_national_team" />
+    </Key>
+    <Property Name="ID_national_team" Type="Int32" Nullable="false" />
+    <Property Name="Name_national_team" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_National_teams" FromRole="National_teams" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Nations">
+    <Key>
+      <PropertyRef Name="ID_nation" />
+    </Key>
+    <Property Name="ID_nation" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Nations" FromRole="Nations" ToRole="Coaches" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Nations" FromRole="Nations" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Place_birth">
+    <Key>
+      <PropertyRef Name="ID_place_birth" />
+    </Key>
+    <Property Name="ID_place_birth" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Place_birth" FromRole="Place_birth" ToRole="Coaches" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Place_birth" FromRole="Place_birth" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Players">
+    <Key>
+      <PropertyRef Name="ID_player" />
+    </Key>
+    <Property Name="ID_player" Type="Int32" Nullable="false" />
+    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_place_birth" Type="Int32" Nullable="false" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="Weight" Type="Int32" />
+    <Property Name="ID_working_leg" Type="Int32" Nullable="false" />
+    <Property Name="ID_position" Type="Int32" Nullable="false" />
+    <Property Name="Contract_date" Type="DateTime" Precision="0" />
+    <Property Name="ID_club" Type="Int32" Nullable="false" />
+    <Property Name="Goals" Type="Int32" />
+    <Property Name="Assists" Type="Int32" />
+    <Property Name="Date_birth" Type="DateTime" Precision="0" />
+    <Property Name="Play_number" Type="Int32" />
+    <Property Name="Cost" Type="Int32" />
+    <Property Name="ID_nation" Type="Int32" Nullable="false" />
+    <Property Name="ID_national_team" Type="Int32" Nullable="false" />
+    <Property Name="ID_agency" Type="Int32" Nullable="false" />
+    <Property Name="ID_technical_sponsor" Type="Int32" Nullable="false" />
+    <Property Name="Penalty_goals" Type="Int32" />
+    <Property Name="Yellow_card" Type="Int32" />
+    <Property Name="Red_card" Type="Int32" />
+    <NavigationProperty Name="Agency" Relationship="Self.FK_Players_Agency" FromRole="Players" ToRole="Agency" />
+    <NavigationProperty Name="Clubs" Relationship="Self.FK_Players_Clubs" FromRole="Players" ToRole="Clubs" />
+    <NavigationProperty Name="National_teams" Relationship="Self.FK_Players_National_teams" FromRole="Players" ToRole="National_teams" />
+    <NavigationProperty Name="Nations" Relationship="Self.FK_Players_Nations" FromRole="Players" ToRole="Nations" />
+    <NavigationProperty Name="Place_birth" Relationship="Self.FK_Players_Place_birth" FromRole="Players" ToRole="Place_birth" />
+    <NavigationProperty Name="Position" Relationship="Self.FK_Players_Position" FromRole="Players" ToRole="Position" />
+    <NavigationProperty Name="Technical_sponsors" Relationship="Self.FK_Players_Technical_sponsors" FromRole="Players" ToRole="Technical_sponsors" />
+    <NavigationProperty Name="Working_leg" Relationship="Self.FK_Players_Working_leg" FromRole="Players" ToRole="Working_leg" />
+    <Property Name="ID_photo" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Photos" Relationship="playersdbModel.FK_Players_Photos" FromRole="Players" ToRole="Photos" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="ID_position" />
+    </Key>
+    <Property Name="ID_position" Type="Int32" Nullable="false" />
+    <Property Name="Name_position" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Position" FromRole="Position" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Technical_sponsors">
+    <Key>
+      <PropertyRef Name="ID_technical_sponsor" />
+    </Key>
+    <Property Name="ID_technical_sponsor" Type="Int32" Nullable="false" />
+    <Property Name="Name_sponsor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Technical_sponsors" FromRole="Technical_sponsors" ToRole="Players" />
+  </EntityType>
+  <EntityType Name="Working_leg">
+    <Key>
+      <PropertyRef Name="ID_working_leg" />
+    </Key>
+    <Property Name="ID_working_leg" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Players" Relationship="Self.FK_Players_Working_leg" FromRole="Working_leg" ToRole="Players" />
+  </EntityType>
+  <Association Name="FK_Players_Agency">
+    <End Role="Agency" Type="Self.Agency" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agency">
+        <PropertyRef Name="ID_agency" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_agency" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cityes_Countryes">
+    <End Role="Countryes" Type="Self.Countryes" Multiplicity="1" />
+    <End Role="Cityes" Type="Self.Cityes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countryes">
+        <PropertyRef Name="ID_country" />
+      </Principal>
+      <Dependent Role="Cityes">
+        <PropertyRef Name="ID_country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clubs_Cityes">
+    <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cityes">
+        <PropertyRef Name="ID_city" />
+      </Principal>
+      <Dependent Role="Clubs">
+        <PropertyRef Name="ID_city" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Clubs_Coaches">
+    <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Coaches">
+        <PropertyRef Name="ID_coach" />
+      </Principal>
+      <Dependent Role="Clubs">
+        <PropertyRef Name="ID_coach" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Clubs">
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clubs">
+        <PropertyRef Name="ID_club" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_club" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coaches_Game_layouts">
+    <End Role="Game_layouts" Type="Self.Game_layouts" Multiplicity="1" />
+    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Game_layouts">
+        <PropertyRef Name="ID_game_layout" />
+      </Principal>
+      <Dependent Role="Coaches">
+        <PropertyRef Name="ID_game_layout" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coaches_Nations">
+    <End Role="Nations" Type="Self.Nations" Multiplicity="1" />
+    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nations">
+        <PropertyRef Name="ID_nation" />
+      </Principal>
+      <Dependent Role="Coaches">
+        <PropertyRef Name="ID_nation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Coaches_Place_birth">
+    <End Role="Place_birth" Type="Self.Place_birth" Multiplicity="1" />
+    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place_birth">
+        <PropertyRef Name="ID_place_birth" />
+      </Principal>
+      <Dependent Role="Coaches">
+        <PropertyRef Name="ID_place_birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_National_teams">
+    <End Role="National_teams" Type="Self.National_teams" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="National_teams">
+        <PropertyRef Name="ID_national_team" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_national_team" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Nations">
+    <End Role="Nations" Type="Self.Nations" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nations">
+        <PropertyRef Name="ID_nation" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_nation" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Place_birth">
+    <End Role="Place_birth" Type="Self.Place_birth" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Place_birth">
+        <PropertyRef Name="ID_place_birth" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_place_birth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="ID_position" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_position" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Technical_sponsors">
+    <End Role="Technical_sponsors" Type="Self.Technical_sponsors" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Technical_sponsors">
+        <PropertyRef Name="ID_technical_sponsor" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_technical_sponsor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Players_Working_leg">
+    <End Role="Working_leg" Type="Self.Working_leg" Multiplicity="1" />
+    <End Role="Players" Type="Self.Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Working_leg">
+        <PropertyRef Name="ID_working_leg" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_working_leg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="playersdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agency" EntityType="Self.Agency" />
+    <EntitySet Name="Cityes" EntityType="Self.Cityes" />
+    <EntitySet Name="Clubs" EntityType="Self.Clubs" />
+    <EntitySet Name="Coaches" EntityType="Self.Coaches" />
+    <EntitySet Name="Countryes" EntityType="Self.Countryes" />
+    <EntitySet Name="Game_layouts" EntityType="Self.Game_layouts" />
+    <EntitySet Name="National_teams" EntityType="Self.National_teams" />
+    <EntitySet Name="Nations" EntityType="Self.Nations" />
+    <EntitySet Name="Place_birth" EntityType="Self.Place_birth" />
+    <EntitySet Name="Players" EntityType="Self.Players" />
+    <EntitySet Name="Position" EntityType="Self.Position" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Technical_sponsors" EntityType="Self.Technical_sponsors" />
+    <EntitySet Name="Working_leg" EntityType="Self.Working_leg" />
+    <AssociationSet Name="FK_Players_Agency" Association="Self.FK_Players_Agency">
+      <End Role="Agency" EntitySet="Agency" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cityes_Countryes" Association="Self.FK_Cityes_Countryes">
+      <End Role="Countryes" EntitySet="Countryes" />
+      <End Role="Cityes" EntitySet="Cityes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
+      <End Role="Cityes" EntitySet="Cityes" />
+      <End Role="Clubs" EntitySet="Clubs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Clubs_Coaches" Association="Self.FK_Clubs_Coaches">
+      <End Role="Coaches" EntitySet="Coaches" />
+      <End Role="Clubs" EntitySet="Clubs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Clubs" Association="Self.FK_Players_Clubs">
+      <End Role="Clubs" EntitySet="Clubs" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coaches_Game_layouts" Association="Self.FK_Coaches_Game_layouts">
+      <End Role="Game_layouts" EntitySet="Game_layouts" />
+      <End Role="Coaches" EntitySet="Coaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coaches_Nations" Association="Self.FK_Coaches_Nations">
+      <End Role="Nations" EntitySet="Nations" />
+      <End Role="Coaches" EntitySet="Coaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Coaches_Place_birth" Association="Self.FK_Coaches_Place_birth">
+      <End Role="Place_birth" EntitySet="Place_birth" />
+      <End Role="Coaches" EntitySet="Coaches" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_National_teams" Association="Self.FK_Players_National_teams">
+      <End Role="National_teams" EntitySet="National_teams" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Nations" Association="Self.FK_Players_Nations">
+      <End Role="Nations" EntitySet="Nations" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Place_birth" Association="Self.FK_Players_Place_birth">
+      <End Role="Place_birth" EntitySet="Place_birth" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Position" Association="Self.FK_Players_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Technical_sponsors" Association="Self.FK_Players_Technical_sponsors">
+      <End Role="Technical_sponsors" EntitySet="Technical_sponsors" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Players_Working_leg" Association="Self.FK_Players_Working_leg">
+      <End Role="Working_leg" EntitySet="Working_leg" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+    <EntitySet Name="Accounts" EntityType="playersdbModel.Accounts" />
+    <EntitySet Name="Role" EntityType="playersdbModel.Role" />
+    <AssociationSet Name="FK_Accounts_Role" Association="playersdbModel.FK_Accounts_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Accounts" EntitySet="Accounts" />
+    </AssociationSet>
+    <EntitySet Name="Photos" EntityType="playersdbModel.Photos" />
+    <AssociationSet Name="FK_Players_Photos" Association="playersdbModel.FK_Players_Photos">
+      <End Role="Photos" EntitySet="Photos" />
+      <End Role="Players" EntitySet="Players" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Accounts">
+    <Key>
+      <PropertyRef Name="ID_account" />
+    </Key>
+    <Property Name="ID_account" Type="Int32" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_role" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="playersdbModel.FK_Accounts_Role" FromRole="Accounts" ToRole="Role" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="ID_role" />
+    </Key>
+    <Property Name="ID_role" Type="Int32" Nullable="false" />
+    <Property Name="Name_role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="playersdbModel.FK_Accounts_Role" FromRole="Role" ToRole="Accounts" />
+  </EntityType>
+  <Association Name="FK_Accounts_Role">
+    <End Type="playersdbModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="playersdbModel.Accounts" Role="Accounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="ID_role" />
+      </Principal>
+      <Dependent Role="Accounts">
+        <PropertyRef Name="ID_role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Photos">
+    <Key>
+      <PropertyRef Name="ID_photo" />
+    </Key>
+    <Property Name="ID_photo" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Players" Relationship="playersdbModel.FK_Players_Photos" FromRole="Photos" ToRole="Players" />
+  </EntityType>
+  <Association Name="FK_Players_Photos">
+    <End Type="playersdbModel.Photos" Role="Photos" Multiplicity="1" />
+    <End Type="playersdbModel.Players" Role="Players" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Photos">
+        <PropertyRef Name="ID_photo" />
+      </Principal>
+      <Dependent Role="Players">
+        <PropertyRef Name="ID_photo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

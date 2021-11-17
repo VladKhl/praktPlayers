@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2b5decd8e5f444a180b6efe359046315" Name="Diagram1" ZoomLevel="88">
+        <EntityTypeShape EntityType="playersdbModel.Agency" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Cityes" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Clubs" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Coaches" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Countryes" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Game_layouts" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.National_teams" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Nations" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Place_birth" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Players" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Position" Width="1.5" PointX="5.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.sysdiagrams" Width="1.5" PointX="9.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Technical_sponsors" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="playersdbModel.Working_leg" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Agency" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Cityes_Countryes" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Clubs_Cityes" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Clubs_Coaches" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Clubs" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Coaches_Game_layouts" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Coaches_Nations" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Coaches_Place_birth" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_National_teams" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Nations" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Place_birth" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Position" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Technical_sponsors" ManuallyRouted="false" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Working_leg" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="playersdbModel.Accounts" Width="1.5" PointX="11.25" PointY="10.125" />
+        <EntityTypeShape EntityType="playersdbModel.Role" Width="1.5" PointX="9" PointY="10.375" />
+        <AssociationConnector Association="playersdbModel.FK_Accounts_Role" />
+        <EntityTypeShape EntityType="playersdbModel.Photos" Width="1.5" PointX="10.375" PointY="3.875" />
+        <AssociationConnector Association="playersdbModel.FK_Players_Photos" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

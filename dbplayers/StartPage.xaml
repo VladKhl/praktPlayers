@@ -1,0 +1,22 @@
+﻿<Page x:Class="dbplayers.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:dbplayers"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+      Title="StartPage" Loaded="Window_load">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="597*"/>
+            <ColumnDefinition Width="403*"/>
+        </Grid.ColumnDefinitions>
+        <Image x:Name="rpl" Grid.Column="0" Source="Images\scale_1200.jpg" Margin="-28,0,1.8,0"/>
+        <TextBox x:Name="login" MouseEnter ="login_enter" Grid.Column="1" HorizontalAlignment="Left" Height="36" Margin="67,160,0,0" TextWrapping="Wrap" Text="ЛОГИН" VerticalAlignment="Top" Width="278" BorderBrush="Black" FontFamily="Arial Black" FontSize="22" TextAlignment="Center" BorderThickness="2"/>
+        <TextBox x:Name="password" MouseEnter="password_enter" Grid.Column="1" HorizontalAlignment="Left" Height="34" Margin="67,218,0,0" TextWrapping="Wrap" Text="ПАРОЛЬ" VerticalAlignment="Top" Width="278" BorderBrush="Black" FontFamily="Arial Black" FontSize="22" TextAlignment="Center" BorderThickness="2"/>
+        <Button x:Name="entry" Content="ВХОД" Foreground="White"  Grid.Column="1" HorizontalAlignment="Left" Height="52" Margin="148.2,292,0,0" VerticalAlignment="Top" Width="119" Background="#FF000331" FontFamily="Arial Rounded MT Bold" FontSize="20" Click="entry_Click"/>
+        <Button x:Name="reg" Content="РЕГИСТРАЦИЯ" Foreground="White"  Grid.Column="1" HorizontalAlignment="Left" Height="57" Margin="98.2,374,0,0" VerticalAlignment="Top" Width="224" Background="#FF000331" FontFamily="Arial Rounded MT Bold" FontSize="20" Click="reg_Click"/>
+    </Grid>
+</Page>
