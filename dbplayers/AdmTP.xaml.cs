@@ -533,7 +533,7 @@ namespace dbplayers
         {
             MessageBoxResult messageBoxExit = MessageBox.Show("Выйти из аккаунта?", "Выход", MessageBoxButton.YesNo);
             if (messageBoxExit == MessageBoxResult.Yes)
-                NavigationService.GoBack();
+                NavigationService.Navigate(new StartPage());
         }
     }
 }

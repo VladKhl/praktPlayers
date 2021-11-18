@@ -81,7 +81,7 @@
     <Key>
       <PropertyRef Name="ID_photo" />
     </Key>
-    <Property Name="ID_photo" Type="int" Nullable="false" />
+    <Property Name="ID_photo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Photo" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Place_birth">

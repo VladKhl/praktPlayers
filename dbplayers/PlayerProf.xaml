@@ -8,7 +8,7 @@
      d:DesignHeight="600" d:DesignWidth="1000"
       Title="PlayerProf" Background="#FF000632">
 
-    <Grid RenderTransformOrigin="0.384,0.498">
+    <Grid>
         <Image x:Name="playim" HorizontalAlignment="Left"  Height="299" Margin="12,26,0,0" VerticalAlignment="Top" Width="230" RenderTransformOrigin="0.5,0.5" >
         </Image>
         <Border CornerRadius="10" HorizontalAlignment="Left" Height="60" Margin="631,15,0,0" VerticalAlignment="Top" Width="350" Background="#FF0082C6">
@@ -42,12 +42,12 @@
                 <Label x:Name="pengoal" Content="" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="69" FontFamily="Arial Rounded MT Bold" FontSize="18" Canvas.Left="204" Canvas.Top="183"/>
                 <Image x:Name="kkim" Source="Images/kk.PNG" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="54" Canvas.Left="450" Canvas.Top="11"/>
                 <Image x:Name="jkim" Source="Images/jk.PNG" HorizontalAlignment="Left" Height="70" VerticalAlignment="Top" Width="54" Canvas.Left="450" Canvas.Top="99"/>
-                <Label x:Name="kkl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="104" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="508" Canvas.Top="-13"/>
-                <Label x:Name="jkl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="104" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="508" Canvas.Top="77"/>
+                <Label x:Name="kkl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="132" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="508" Canvas.Top="-13"/>
+                <Label x:Name="jkl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="130" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="508" Canvas.Top="77"/>
                 <Image x:Name="goalim" Source="Images/goal.png" HorizontalAlignment="Left" Height="75" VerticalAlignment="Top" Width="75" Canvas.Left="722" Canvas.Top="11"/>
                 <Image x:Name="gpim" Source="Images/goalp.png" HorizontalAlignment="Left" Height="93" VerticalAlignment="Top" Width="107" Canvas.Left="715" Canvas.Top="94"/>
-                <Label x:Name="goal" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="104" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="807" Canvas.Top="-12"/>
-                <Label x:Name="gpl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="104" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="808" Canvas.Top="82"/>
+                <Label x:Name="goal" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="126" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="807" Canvas.Top="-12"/>
+                <Label x:Name="gpl" Content="" Foreground="White" HorizontalAlignment="Left" Height="116" VerticalAlignment="Top" Width="128" FontFamily="Arial Rounded MT Bold" FontSize="90" Canvas.Left="808" Canvas.Top="82"/>
             </Canvas>
         </Border>
         <Canvas HorizontalAlignment="Left" Height="183" Margin="253,142,0,0" VerticalAlignment="Top" Width="434">
