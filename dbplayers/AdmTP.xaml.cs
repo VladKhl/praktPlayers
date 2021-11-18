@@ -535,5 +535,10 @@ namespace dbplayers
             if (messageBoxExit == MessageBoxResult.Yes)
                 NavigationService.Navigate(new StartPage());
         }
+
+        private void addpl_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdmAddPlay());
+        }
     }
 }

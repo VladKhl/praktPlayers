@@ -363,5 +363,25 @@ namespace dbplayers
                 photo = File.ReadAllBytes(ofdPicture.FileName);
             }
         }
+
+        private void delete_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult messageBoxExit = MessageBox.Show("Удалить игрока?", "Удаление", MessageBoxButton.YesNo);
+            if (messageBoxExit == MessageBoxResult.Yes)
+            {
+                Players play = (from p in dataEntities.Players
+                              where p.ID_player == AdmTP.admid
+                              select p).First();
+                Photos ph = (from h in dataEntities.Photos
+                             join p in dataEntities.Players
+                             on h.ID_photo equals p.ID_photo
+                             where p.ID_player == AdmTP.admid
+                             select h).First();
+                dataEntities.Players.Remove(play);
+                dataEntities.Photos.Remove(ph);
+                dataEntities.SaveChanges();
+                NavigationService.Navigate(new AdmTP());
+            }
+        }
     }
 }

@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdmAddPlay.xaml.cs">
+      <DependentUpon>AdmAddPlay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdmPlayProf.xaml.cs">
       <DependentUpon>AdmPlayProf.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
     <Compile Include="TablePlayers.xaml.cs">
       <DependentUpon>TablePlayers.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdmAddPlay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdmPlayProf.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

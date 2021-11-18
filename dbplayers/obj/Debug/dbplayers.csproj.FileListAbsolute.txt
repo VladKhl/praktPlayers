@@ -30,3 +30,5 @@ C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmTP.g.cs
 C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmTP.baml
 C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmPlayProf.g.cs
 C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmPlayProf.baml
+C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmAddPlay.g.cs
+C:\Users\Username\source\repos\dbplayers\dbplayers\obj\Debug\AdmAddPlay.baml

@@ -129,6 +129,6 @@
             </DataGrid.ItemContainerStyle>
         </DataGrid>
         <Button x:Name="exit" Content="ВЫЙТИ" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="100" Background="#FF0082C6" FontFamily="Arial Rounded MT Bold" FontSize="20" Margin="20,530,0,0" Click="exit_Click" RenderTransformOrigin="0.545,0.278"/>
-        <Button x:Name="addpl" Content="ДОБАВИТЬ ИГРОКА" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="206" Background="#FF0082C6" FontFamily="Arial Rounded MT Bold" FontSize="20" Margin="766,530,0,0" RenderTransformOrigin="0.545,0.278"/>
+        <Button x:Name="addpl" Content="ДОБАВИТЬ ИГРОКА" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="206" Background="#FF0082C6" FontFamily="Arial Rounded MT Bold" FontSize="20" Margin="766,530,0,0" RenderTransformOrigin="0.545,0.278" Click="addpl_Click"/>
     </Grid>
 </Page>
