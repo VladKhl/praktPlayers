@@ -14,8 +14,6 @@
     </Key>
     <Property Name="ID_city" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ID_country" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Countryes" Relationship="Self.FK_Cityes_Countryes" FromRole="Cityes" ToRole="Countryes" />
     <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Cityes" FromRole="Cityes" ToRole="Clubs" />
   </EntityType>
   <EntityType Name="Clubs">
@@ -24,47 +22,10 @@
     </Key>
     <Property Name="ID_club" Type="Int32" Nullable="false" />
     <Property Name="Name_club" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ID_coach" Type="Int32" Nullable="false" />
     <Property Name="ID_city" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Cityes" Relationship="Self.FK_Clubs_Cityes" FromRole="Clubs" ToRole="Cityes" />
-    <NavigationProperty Name="Coaches" Relationship="Self.FK_Clubs_Coaches" FromRole="Clubs" ToRole="Coaches" />
     <NavigationProperty Name="Players" Relationship="Self.FK_Players_Clubs" FromRole="Clubs" ToRole="Players" />
     <Property Name="Photo_club" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Coaches">
-    <Key>
-      <PropertyRef Name="ID_coach" />
-    </Key>
-    <Property Name="ID_coach" Type="Int32" Nullable="false" />
-    <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ID_place_birth" Type="Int32" Nullable="false" />
-    <Property Name="ID_nation" Type="Int32" Nullable="false" />
-    <Property Name="Date_birth" Type="DateTime" Precision="0" />
-    <Property Name="Contract_started" Type="DateTime" Precision="0" />
-    <Property Name="Contract_date" Type="DateTime" Precision="0" />
-    <Property Name="ID_game_layout" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Coaches" FromRole="Coaches" ToRole="Clubs" />
-    <NavigationProperty Name="Game_layouts" Relationship="Self.FK_Coaches_Game_layouts" FromRole="Coaches" ToRole="Game_layouts" />
-    <NavigationProperty Name="Nations" Relationship="Self.FK_Coaches_Nations" FromRole="Coaches" ToRole="Nations" />
-    <NavigationProperty Name="Place_birth" Relationship="Self.FK_Coaches_Place_birth" FromRole="Coaches" ToRole="Place_birth" />
-  </EntityType>
-  <EntityType Name="Countryes">
-    <Key>
-      <PropertyRef Name="ID_country" />
-    </Key>
-    <Property Name="ID_country" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Cityes" Relationship="Self.FK_Cityes_Countryes" FromRole="Countryes" ToRole="Cityes" />
-  </EntityType>
-  <EntityType Name="Game_layouts">
-    <Key>
-      <PropertyRef Name="ID_game_layout" />
-    </Key>
-    <Property Name="ID_game_layout" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Game_layouts" FromRole="Game_layouts" ToRole="Coaches" />
   </EntityType>
   <EntityType Name="National_teams">
     <Key>
@@ -80,7 +41,6 @@
     </Key>
     <Property Name="ID_nation" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Nations" FromRole="Nations" ToRole="Coaches" />
     <NavigationProperty Name="Players" Relationship="Self.FK_Players_Nations" FromRole="Nations" ToRole="Players" />
   </EntityType>
   <EntityType Name="Place_birth">
@@ -89,7 +49,6 @@
     </Key>
     <Property Name="ID_place_birth" Type="Int32" Nullable="false" />
     <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Coaches" Relationship="Self.FK_Coaches_Place_birth" FromRole="Place_birth" ToRole="Coaches" />
     <NavigationProperty Name="Players" Relationship="Self.FK_Players_Place_birth" FromRole="Place_birth" ToRole="Players" />
   </EntityType>
   <EntityType Name="Players">
@@ -176,18 +135,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Cityes_Countryes">
-    <End Role="Countryes" Type="Self.Countryes" Multiplicity="1" />
-    <End Role="Cityes" Type="Self.Cityes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Countryes">
-        <PropertyRef Name="ID_country" />
-      </Principal>
-      <Dependent Role="Cityes">
-        <PropertyRef Name="ID_country" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Clubs_Cityes">
     <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
@@ -200,18 +147,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Clubs_Coaches">
-    <End Role="Coaches" Type="Self.Coaches" Multiplicity="1" />
-    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Coaches">
-        <PropertyRef Name="ID_coach" />
-      </Principal>
-      <Dependent Role="Clubs">
-        <PropertyRef Name="ID_coach" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Players_Clubs">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
     <End Role="Players" Type="Self.Players" Multiplicity="*" />
@@ -221,42 +156,6 @@
       </Principal>
       <Dependent Role="Players">
         <PropertyRef Name="ID_club" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Coaches_Game_layouts">
-    <End Role="Game_layouts" Type="Self.Game_layouts" Multiplicity="1" />
-    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Game_layouts">
-        <PropertyRef Name="ID_game_layout" />
-      </Principal>
-      <Dependent Role="Coaches">
-        <PropertyRef Name="ID_game_layout" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Coaches_Nations">
-    <End Role="Nations" Type="Self.Nations" Multiplicity="1" />
-    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Nations">
-        <PropertyRef Name="ID_nation" />
-      </Principal>
-      <Dependent Role="Coaches">
-        <PropertyRef Name="ID_nation" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Coaches_Place_birth">
-    <End Role="Place_birth" Type="Self.Place_birth" Multiplicity="1" />
-    <End Role="Coaches" Type="Self.Coaches" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Place_birth">
-        <PropertyRef Name="ID_place_birth" />
-      </Principal>
-      <Dependent Role="Coaches">
-        <PropertyRef Name="ID_place_birth" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -336,9 +235,6 @@
     <EntitySet Name="Agency" EntityType="Self.Agency" />
     <EntitySet Name="Cityes" EntityType="Self.Cityes" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />
-    <EntitySet Name="Coaches" EntityType="Self.Coaches" />
-    <EntitySet Name="Countryes" EntityType="Self.Countryes" />
-    <EntitySet Name="Game_layouts" EntityType="Self.Game_layouts" />
     <EntitySet Name="National_teams" EntityType="Self.National_teams" />
     <EntitySet Name="Nations" EntityType="Self.Nations" />
     <EntitySet Name="Place_birth" EntityType="Self.Place_birth" />
@@ -351,33 +247,13 @@
       <End Role="Agency" EntitySet="Agency" />
       <End Role="Players" EntitySet="Players" />
     </AssociationSet>
-    <AssociationSet Name="FK_Cityes_Countryes" Association="Self.FK_Cityes_Countryes">
-      <End Role="Countryes" EntitySet="Countryes" />
-      <End Role="Cityes" EntitySet="Cityes" />
-    </AssociationSet>
     <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
       <End Role="Cityes" EntitySet="Cityes" />
-      <End Role="Clubs" EntitySet="Clubs" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Clubs_Coaches" Association="Self.FK_Clubs_Coaches">
-      <End Role="Coaches" EntitySet="Coaches" />
       <End Role="Clubs" EntitySet="Clubs" />
     </AssociationSet>
     <AssociationSet Name="FK_Players_Clubs" Association="Self.FK_Players_Clubs">
       <End Role="Clubs" EntitySet="Clubs" />
       <End Role="Players" EntitySet="Players" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Coaches_Game_layouts" Association="Self.FK_Coaches_Game_layouts">
-      <End Role="Game_layouts" EntitySet="Game_layouts" />
-      <End Role="Coaches" EntitySet="Coaches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Coaches_Nations" Association="Self.FK_Coaches_Nations">
-      <End Role="Nations" EntitySet="Nations" />
-      <End Role="Coaches" EntitySet="Coaches" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Coaches_Place_birth" Association="Self.FK_Coaches_Place_birth">
-      <End Role="Place_birth" EntitySet="Place_birth" />
-      <End Role="Coaches" EntitySet="Coaches" />
     </AssociationSet>
     <AssociationSet Name="FK_Players_National_teams" Association="Self.FK_Players_National_teams">
       <End Role="National_teams" EntitySet="National_teams" />

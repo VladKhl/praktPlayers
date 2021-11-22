@@ -8,9 +8,6 @@
         <EntityTypeShape EntityType="playersdbModel.Agency" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Cityes" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Clubs" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="playersdbModel.Coaches" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
-        <EntityTypeShape EntityType="playersdbModel.Countryes" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
-        <EntityTypeShape EntityType="playersdbModel.Game_layouts" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.National_teams" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Nations" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Place_birth" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
@@ -20,13 +17,8 @@
         <EntityTypeShape EntityType="playersdbModel.Technical_sponsors" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Working_leg" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <AssociationConnector Association="playersdbModel.FK_Players_Agency" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Cityes_Countryes" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Clubs_Cityes" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Clubs_Coaches" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_Clubs" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Coaches_Game_layouts" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Coaches_Nations" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Coaches_Place_birth" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_National_teams" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_Nations" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_Place_birth" ManuallyRouted="false" />

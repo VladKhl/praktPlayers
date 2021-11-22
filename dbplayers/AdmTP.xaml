@@ -104,24 +104,23 @@
 
                 </ComboBox>
                 <Label Content="ИСКАТЬ ПО" Foreground="White" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="139" FontFamily="Arial Rounded MT Bold" FontSize="22" Canvas.Left="18" Canvas.Top="13"/>
-                <TextBox x:Name="valapr" Height="27" Canvas.Left="416" TextWrapping="Wrap" Text="ЗНАЧЕНИЕ ПАРАМЕТРА" Canvas.Top="18" Width="220" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
+                <TextBox x:Name="valapr" TextChanged="valapr_TextChanged" Height="27" Canvas.Left="416" TextWrapping="Wrap" Text="ЗНАЧЕНИЕ ПАРАМЕТРА" Canvas.Top="18" Width="220" FontFamily="Arial Rounded MT Bold" FontSize="18"/>
                 <Label Content="СОРТИРОВАТЬ ПО" Foreground="White" HorizontalAlignment="Left" Height="33" VerticalAlignment="Top" Width="212" FontFamily="Arial Rounded MT Bold" FontSize="22" Canvas.Left="18" Canvas.Top="66"/>
                 <ComboBox x:Name="pargr" Text="ВЫБЕРИТЕ ПАРАМЕТР" IsEditable="True" IsReadOnly="True" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="238" FontFamily="Arial Rounded MT Bold" FontSize="18" Canvas.Left="232" Canvas.Top="69">
                     <ComboBoxItem Content="Голы"/>
                     <ComboBoxItem Content="Ассисты"/>
                     <ComboBoxItem Content="Рост"/>
                     <ComboBoxItem Content="Вес"/>
-                    <ComboBoxItem Content="Дата рождения"/>
+                    <ComboBoxItem Content="Родился"/>
                     <ComboBoxItem Content="Цена"/>
-                    <ComboBoxItem Content="Желтые карточки"/>
-                    <ComboBoxItem Content="Красные карточки"/>
+                    <ComboBoxItem Content="ЖК"/>
+                    <ComboBoxItem Content="КК"/>
                 </ComboBox>
-                <Button x:Name="found" Content="ПОИСК" Foreground="White" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="100" Background="#FF000331" FontFamily="Arial Rounded MT Bold" FontSize="20" Canvas.Left="649" Canvas.Top="11" Click="found_Click"/>
                 <Button x:Name="group" Content="СОРТИРОВАТЬ" Foreground="White" HorizontalAlignment="Left" Height="42" VerticalAlignment="Top" Width="169" Background="#FF000331" FontFamily="Arial Rounded MT Bold" FontSize="20" Canvas.Left="487" Canvas.Top="62" Click="group_Click"/>
             </Canvas>
         </Border>
         <Image HorizontalAlignment="Left" Height="141" Margin="810,3,0,0" VerticalAlignment="Top" Width="152" Source="Images\rpl-logo.png"/>
-        <DataGrid x:Name="tablepl" VerticalGridLinesBrush="#e9e9e9"   HorizontalGridLinesBrush="#e9e9e9" HorizontalAlignment="Left" Height="375" Margin="20,147,0,0" VerticalAlignment="Top" Width="952" FontFamily="Arial Rounded MT Bold" Style="{DynamicResource DataGridStyle1}">
+        <DataGrid x:Name="tablepl" CanUserAddRows="False" CanUserReorderColumns="False" CanUserResizeRows="False" CanUserResizeColumns="False" CanUserDeleteRows="False" VerticalGridLinesBrush="#e9e9e9"   HorizontalGridLinesBrush="#e9e9e9" HorizontalAlignment="Left" Height="375" Margin="20,147,0,0" VerticalAlignment="Top" Width="952" FontFamily="Arial Rounded MT Bold" Style="{DynamicResource DataGridStyle1}">
             <DataGrid.ItemContainerStyle>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="profileopen"/>
@@ -130,5 +129,6 @@
         </DataGrid>
         <Button x:Name="exit" Content="ВЫЙТИ" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="100" Background="#FF0082C6" FontFamily="Arial Rounded MT Bold" FontSize="20" Margin="20,530,0,0" Click="exit_Click" RenderTransformOrigin="0.545,0.278"/>
         <Button x:Name="addpl" Content="ДОБАВИТЬ ИГРОКА" Foreground="White" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="206" Background="#FF0082C6" FontFamily="Arial Rounded MT Bold" FontSize="20" Margin="766,530,0,0" RenderTransformOrigin="0.545,0.278" Click="addpl_Click"/>
+
     </Grid>
 </Page>

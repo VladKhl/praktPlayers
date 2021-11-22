@@ -38,7 +38,7 @@ namespace dbplayers
         {
             try
             {
-                var log = (from auf in dataEntities.Accounts where auf.login == login.Text where auf.password == password.Text select auf.ID_role).First();
+                var log = (from auf in dataEntities.Accounts where auf.login == login.Text.ToLower() where auf.password == password.Text.ToLower() select auf.ID_role).First();
                 if (log == 1401)
                 {
                     MessageBox.Show("Вы вошли в админ-аккаунт");
@@ -63,23 +63,30 @@ namespace dbplayers
             }
             else
             {
-                try
-                {
-                    var log = (from auf in dataEntities.Accounts where auf.login == login.Text where auf.password == password.Text select auf.ID_role).First();
-                    MessageBox.Show("Аккаунт с такими данными уже существует");
-                }
-                catch
-                {
-                    Accounts acc = new Accounts
+                    int cnt = 0;
+                    var log = (from auf in dataEntities.Accounts
+                               where auf.login == login.Text.ToLower()
+                               select auf.login).ToList();
+                    foreach (var logi in log)
                     {
-                        login = login.Text,
-                        password = password.Text,
-                        ID_role = 1402
-                    };
-                    dataEntities.Accounts.Add(acc);
-                    dataEntities.SaveChanges();
-                    MessageBox.Show("Аккаунт зарегестрирован");
-                }
+                        if (logi == login.Text.ToLower().Trim())
+                        {
+                            MessageBox.Show("Аккаунт с такими данными уже существует");
+                            cnt++;
+                        }
+                    }
+                    if (cnt == 0)
+                    {
+                        Accounts acc = new Accounts
+                        {
+                            login = login.Text.ToLower(),
+                            password = password.Text.ToLower(),
+                            ID_role = 1402
+                        };
+                        dataEntities.Accounts.Add(acc);
+                        dataEntities.SaveChanges();
+                        MessageBox.Show("Аккаунт зарегестрирован");
+                    }
             }
         }
         private void login_enter(object sender, EventArgs e)

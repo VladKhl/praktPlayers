@@ -1,6 +1,7 @@
 ﻿using dbplayers.DB;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -60,8 +61,7 @@ namespace dbplayers
             };
             tablepl.ItemsSource = query.ToList();
         }
-
-        private void found_Click(object sender, RoutedEventArgs e)
+        private void valapr_TextChanged(object sender, TextChangedEventArgs e)
         {
             if (parfoun.SelectedIndex == 0)
             {
@@ -277,245 +277,11 @@ namespace dbplayers
 
         private void group_Click(object sender, RoutedEventArgs e)
         {
-            if (pargr.SelectedIndex == 0)
+            ICollectionView cvTasks = CollectionViewSource.GetDefaultView(tablepl.ItemsSource);
+            if (cvTasks != null && cvTasks.CanSort == true)
             {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Goals descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 1)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Assists descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 2)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Height descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 3)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Weight descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 4)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Date_birth descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 5)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Cost descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 6)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Yellow_card descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
-            }
-            else if (pargr.SelectedIndex == 7)
-            {
-                var query =
-                from player in dataEntities.Players
-                join club in dataEntities.Clubs on player.ID_club equals club.ID_club
-                join worl in dataEntities.Working_leg on player.ID_working_leg equals worl.ID_working_leg
-                join pos in dataEntities.Position on player.ID_position equals pos.ID_position
-                join nat in dataEntities.Nations on player.ID_nation equals nat.ID_nation
-                orderby player.Red_card descending
-                select new
-                {
-                    ID = player.ID_player,
-                    Фамилия = player.Surname,
-                    Имя = player.Name,
-                    Отчество = player.Middlename,
-                    Рост = player.Height,
-                    Вес = player.Weight,
-                    Нога = worl.Name,
-                    Позиция = pos.Name_position,
-                    Клуб = club.Name_club,
-                    Гражданство = nat.Name,
-                    Голы = player.Goals,
-                    Ассисты = player.Assists,
-                    ЖК = player.Yellow_card,
-                    КК = player.Red_card,
-                    Родился = player.Date_birth.ToString().Substring(0, 10),
-                    Цена = player.Cost,
-                };
-                tablepl.ItemsSource = query.ToList();
+                cvTasks.SortDescriptions.Clear();
+                cvTasks.SortDescriptions.Add(new SortDescription(pargr.Text, ListSortDirection.Descending));
             }
         }
 

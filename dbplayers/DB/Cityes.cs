@@ -22,9 +22,7 @@ namespace dbplayers.DB
     
         public int ID_city { get; set; }
         public string Name { get; set; }
-        public int ID_country { get; set; }
     
-        public virtual Countryes Countryes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Clubs> Clubs { get; set; }
     }

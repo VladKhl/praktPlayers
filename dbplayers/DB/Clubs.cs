@@ -22,12 +22,10 @@ namespace dbplayers.DB
     
         public int ID_club { get; set; }
         public string Name_club { get; set; }
-        public int ID_coach { get; set; }
         public int ID_city { get; set; }
         public byte[] Photo_club { get; set; }
     
         public virtual Cityes Cityes { get; set; }
-        public virtual Coaches Coaches { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Players> Players { get; set; }
     }

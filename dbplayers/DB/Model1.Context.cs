@@ -28,9 +28,6 @@ namespace dbplayers.DB
         public virtual DbSet<Agency> Agency { get; set; }
         public virtual DbSet<Cityes> Cityes { get; set; }
         public virtual DbSet<Clubs> Clubs { get; set; }
-        public virtual DbSet<Coaches> Coaches { get; set; }
-        public virtual DbSet<Countryes> Countryes { get; set; }
-        public virtual DbSet<Game_layouts> Game_layouts { get; set; }
         public virtual DbSet<National_teams> National_teams { get; set; }
         public virtual DbSet<Nations> Nations { get; set; }
         public virtual DbSet<Place_birth> Place_birth { get; set; }

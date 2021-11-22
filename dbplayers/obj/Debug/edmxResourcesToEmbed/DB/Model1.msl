@@ -14,7 +14,6 @@
         <MappingFragment StoreEntitySet="Cityes">
           <ScalarProperty Name="ID_city" ColumnName="ID_city" />
           <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="ID_country" ColumnName="ID_country" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -24,40 +23,7 @@
           <ScalarProperty Name="Photo_club" ColumnName="Photo_club" />
           <ScalarProperty Name="ID_club" ColumnName="ID_club" />
           <ScalarProperty Name="Name_club" ColumnName="Name_club" />
-          <ScalarProperty Name="ID_coach" ColumnName="ID_coach" />
           <ScalarProperty Name="ID_city" ColumnName="ID_city" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Coaches">
-      <EntityTypeMapping TypeName="playersdbModel.Coaches">
-        <MappingFragment StoreEntitySet="Coaches">
-          <ScalarProperty Name="ID_coach" ColumnName="ID_coach" />
-          <ScalarProperty Name="Surname" ColumnName="Surname" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Middlename" ColumnName="Middlename" />
-          <ScalarProperty Name="ID_place_birth" ColumnName="ID_place_birth" />
-          <ScalarProperty Name="ID_nation" ColumnName="ID_nation" />
-          <ScalarProperty Name="Date_birth" ColumnName="Date_birth" />
-          <ScalarProperty Name="Contract_started" ColumnName="Contract_started" />
-          <ScalarProperty Name="Contract_date" ColumnName="Contract_date" />
-          <ScalarProperty Name="ID_game_layout" ColumnName="ID_game_layout" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Countryes">
-      <EntityTypeMapping TypeName="playersdbModel.Countryes">
-        <MappingFragment StoreEntitySet="Countryes">
-          <ScalarProperty Name="ID_country" ColumnName="ID_country" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Game_layouts">
-      <EntityTypeMapping TypeName="playersdbModel.Game_layouts">
-        <MappingFragment StoreEntitySet="Game_layouts">
-          <ScalarProperty Name="ID_game_layout" ColumnName="ID_game_layout" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
