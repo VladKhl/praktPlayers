@@ -50,7 +50,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="60"
                     Foreground="White"
@@ -73,7 +73,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="89"
                 Foreground="White" />
@@ -86,7 +86,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" />
@@ -99,7 +99,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" />
@@ -112,7 +112,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" />
@@ -298,7 +298,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="18"
                     Foreground="White" />
@@ -329,7 +329,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -342,7 +342,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -373,7 +373,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -386,7 +386,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -531,7 +531,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="22"
                 Foreground="White" />
@@ -544,7 +544,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="22"
                 Foreground="White" />

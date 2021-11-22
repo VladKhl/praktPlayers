@@ -8,22 +8,12 @@
     <Property Name="Name_agency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Players" Relationship="Self.FK_Players_Agency" FromRole="Agency" ToRole="Players" />
   </EntityType>
-  <EntityType Name="Cityes">
-    <Key>
-      <PropertyRef Name="ID_city" />
-    </Key>
-    <Property Name="ID_city" Type="Int32" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Cityes" FromRole="Cityes" ToRole="Clubs" />
-  </EntityType>
   <EntityType Name="Clubs">
     <Key>
       <PropertyRef Name="ID_club" />
     </Key>
     <Property Name="ID_club" Type="Int32" Nullable="false" />
     <Property Name="Name_club" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="ID_city" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cityes" Relationship="Self.FK_Clubs_Cityes" FromRole="Clubs" ToRole="Cityes" />
     <NavigationProperty Name="Players" Relationship="Self.FK_Players_Clubs" FromRole="Clubs" ToRole="Players" />
     <Property Name="Photo_club" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
@@ -135,18 +125,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Clubs_Cityes">
-    <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
-    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cityes">
-        <PropertyRef Name="ID_city" />
-      </Principal>
-      <Dependent Role="Clubs">
-        <PropertyRef Name="ID_city" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Players_Clubs">
     <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
     <End Role="Players" Type="Self.Players" Multiplicity="*" />
@@ -233,7 +211,6 @@
   </Association>
   <EntityContainer Name="playersdbEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Agency" EntityType="Self.Agency" />
-    <EntitySet Name="Cityes" EntityType="Self.Cityes" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" />
     <EntitySet Name="National_teams" EntityType="Self.National_teams" />
     <EntitySet Name="Nations" EntityType="Self.Nations" />
@@ -246,10 +223,6 @@
     <AssociationSet Name="FK_Players_Agency" Association="Self.FK_Players_Agency">
       <End Role="Agency" EntitySet="Agency" />
       <End Role="Players" EntitySet="Players" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
-      <End Role="Cityes" EntitySet="Cityes" />
-      <End Role="Clubs" EntitySet="Clubs" />
     </AssociationSet>
     <AssociationSet Name="FK_Players_Clubs" Association="Self.FK_Players_Clubs">
       <End Role="Clubs" EntitySet="Clubs" />

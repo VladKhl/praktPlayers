@@ -18,37 +18,29 @@
           <Key>
             <PropertyRef Name="ID_agency" />
           </Key>
-          <Property Name="ID_agency" Type="int" Nullable="false" />
+          <Property Name="ID_agency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_agency" Type="varchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Cityes">
-          <Key>
-            <PropertyRef Name="ID_city" />
-          </Key>
-          <Property Name="ID_city" Type="int" Nullable="false" />
-          <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Clubs">
           <Key>
             <PropertyRef Name="ID_club" />
           </Key>
-          <Property Name="ID_club" Type="int" Nullable="false" />
+          <Property Name="ID_club" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_club" Type="varchar" MaxLength="50" />
-          <Property Name="ID_city" Type="int" Nullable="false" />
           <Property Name="Photo_club" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="National_teams">
           <Key>
             <PropertyRef Name="ID_national_team" />
           </Key>
-          <Property Name="ID_national_team" Type="int" Nullable="false" />
+          <Property Name="ID_national_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_national_team" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Nations">
           <Key>
             <PropertyRef Name="ID_nation" />
           </Key>
-          <Property Name="ID_nation" Type="int" Nullable="false" />
+          <Property Name="ID_nation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Photos">
@@ -62,7 +54,7 @@
           <Key>
             <PropertyRef Name="ID_place_birth" />
           </Key>
-          <Property Name="ID_place_birth" Type="int" Nullable="false" />
+          <Property Name="ID_place_birth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Players">
@@ -122,7 +114,7 @@
           <Key>
             <PropertyRef Name="ID_technical_sponsor" />
           </Key>
-          <Property Name="ID_technical_sponsor" Type="int" Nullable="false" />
+          <Property Name="ID_technical_sponsor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name_sponsor" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Working_leg">
@@ -141,18 +133,6 @@
             </Principal>
             <Dependent Role="Accounts">
               <PropertyRef Name="ID_role" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Clubs_Cityes">
-          <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
-          <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cityes">
-              <PropertyRef Name="ID_city" />
-            </Principal>
-            <Dependent Role="Clubs">
-              <PropertyRef Name="ID_city" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -267,7 +247,6 @@
         <EntityContainer Name="Хранилище playersdbModelContainer">
           <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Agency" EntityType="Self.Agency" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cityes" EntityType="Self.Cityes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="National_teams" EntityType="Self.National_teams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nations" EntityType="Self.Nations" Schema="dbo" store:Type="Tables" />
@@ -282,10 +261,6 @@
           <AssociationSet Name="FK_Accounts_Role" Association="Self.FK_Accounts_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Accounts" EntitySet="Accounts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
-            <End Role="Cityes" EntitySet="Cityes" />
-            <End Role="Clubs" EntitySet="Clubs" />
           </AssociationSet>
           <AssociationSet Name="FK_Players_Agency" Association="Self.FK_Players_Agency">
             <End Role="Agency" EntitySet="Agency" />
@@ -336,22 +311,12 @@
           <Property Name="Name_agency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Players" Relationship="Self.FK_Players_Agency" FromRole="Agency" ToRole="Players" />
         </EntityType>
-        <EntityType Name="Cityes">
-          <Key>
-            <PropertyRef Name="ID_city" />
-          </Key>
-          <Property Name="ID_city" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Clubs" Relationship="Self.FK_Clubs_Cityes" FromRole="Cityes" ToRole="Clubs" />
-        </EntityType>
         <EntityType Name="Clubs">
           <Key>
             <PropertyRef Name="ID_club" />
           </Key>
           <Property Name="ID_club" Type="Int32" Nullable="false" />
           <Property Name="Name_club" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_city" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Cityes" Relationship="Self.FK_Clubs_Cityes" FromRole="Clubs" ToRole="Cityes" />
           <NavigationProperty Name="Players" Relationship="Self.FK_Players_Clubs" FromRole="Clubs" ToRole="Players" />
           <Property Name="Photo_club" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
@@ -463,18 +428,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Clubs_Cityes">
-          <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
-          <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cityes">
-              <PropertyRef Name="ID_city" />
-            </Principal>
-            <Dependent Role="Clubs">
-              <PropertyRef Name="ID_city" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Players_Clubs">
           <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
           <End Role="Players" Type="Self.Players" Multiplicity="*" />
@@ -561,7 +514,6 @@
         </Association>
         <EntityContainer Name="playersdbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Agency" EntityType="Self.Agency" />
-          <EntitySet Name="Cityes" EntityType="Self.Cityes" />
           <EntitySet Name="Clubs" EntityType="Self.Clubs" />
           <EntitySet Name="National_teams" EntityType="Self.National_teams" />
           <EntitySet Name="Nations" EntityType="Self.Nations" />
@@ -574,10 +526,6 @@
           <AssociationSet Name="FK_Players_Agency" Association="Self.FK_Players_Agency">
             <End Role="Agency" EntitySet="Agency" />
             <End Role="Players" EntitySet="Players" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
-            <End Role="Cityes" EntitySet="Cityes" />
-            <End Role="Clubs" EntitySet="Clubs" />
           </AssociationSet>
           <AssociationSet Name="FK_Players_Clubs" Association="Self.FK_Players_Clubs">
             <End Role="Clubs" EntitySet="Clubs" />
@@ -683,21 +631,12 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cityes">
-            <EntityTypeMapping TypeName="playersdbModel.Cityes">
-              <MappingFragment StoreEntitySet="Cityes">
-                <ScalarProperty Name="ID_city" ColumnName="ID_city" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Clubs">
             <EntityTypeMapping TypeName="playersdbModel.Clubs">
               <MappingFragment StoreEntitySet="Clubs">
                 <ScalarProperty Name="Photo_club" ColumnName="Photo_club" />
                 <ScalarProperty Name="ID_club" ColumnName="ID_club" />
                 <ScalarProperty Name="Name_club" ColumnName="Name_club" />
-                <ScalarProperty Name="ID_city" ColumnName="ID_city" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

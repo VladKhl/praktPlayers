@@ -46,7 +46,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="60"
                     Foreground="White"
@@ -69,7 +69,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="89"
                 Foreground="White" Text="№" />
@@ -82,7 +82,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" Text="Имя" />
@@ -95,7 +95,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" Text="Фамилия" />
@@ -108,7 +108,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="25"
                 Foreground="White" Text="Отчество" />
@@ -294,7 +294,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="18"
                     Foreground="White" />
@@ -325,7 +325,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -338,7 +338,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -369,7 +369,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -382,7 +382,7 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Background="Transparent"
-                    BorderThickness="0"
+                    BorderThickness="1"
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="90"
                     Foreground="White" />
@@ -410,6 +410,18 @@
                     FontSize="16"
                     Foreground="White"
                     RenderTransformOrigin="0.545,0.278" Canvas.Left="25" Canvas.Top="-10" Click="addphoto_Click" />
+                <Button
+                    x:Name="addatru"
+                    Width="210"
+                    Height="22"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Background="#FF000632"
+                    Content="ИЗМЕНИТЬ АТРИБУТЫ"
+                    FontFamily="Arial Rounded MT Bold"
+                    FontSize="16"
+                    Foreground="White"
+                    RenderTransformOrigin="0.545,0.278" Canvas.Left="521" Canvas.Top="190" Click="addatru_Click" />
             </Canvas>
         </Border>
         <Canvas
@@ -527,7 +539,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="22"
                 Foreground="White" />
@@ -540,7 +552,7 @@
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
                 Background="Transparent"
-                BorderThickness="0"
+                BorderThickness="1"
                 FontFamily="Arial Rounded MT Bold"
                 FontSize="22"
                 Foreground="White" />

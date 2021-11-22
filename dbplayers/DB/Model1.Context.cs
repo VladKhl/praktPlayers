@@ -26,7 +26,6 @@ namespace dbplayers.DB
         }
     
         public virtual DbSet<Agency> Agency { get; set; }
-        public virtual DbSet<Cityes> Cityes { get; set; }
         public virtual DbSet<Clubs> Clubs { get; set; }
         public virtual DbSet<National_teams> National_teams { get; set; }
         public virtual DbSet<Nations> Nations { get; set; }

@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="2b5decd8e5f444a180b6efe359046315" Name="Diagram1" ZoomLevel="88">
         <EntityTypeShape EntityType="playersdbModel.Agency" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="playersdbModel.Cityes" Width="1.5" PointX="3" PointY="9.875" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Clubs" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.National_teams" Width="1.5" PointX="5.25" PointY="9.5" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Nations" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
@@ -17,7 +16,6 @@
         <EntityTypeShape EntityType="playersdbModel.Technical_sponsors" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="playersdbModel.Working_leg" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
         <AssociationConnector Association="playersdbModel.FK_Players_Agency" ManuallyRouted="false" />
-        <AssociationConnector Association="playersdbModel.FK_Clubs_Cityes" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_Clubs" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_National_teams" ManuallyRouted="false" />
         <AssociationConnector Association="playersdbModel.FK_Players_Nations" ManuallyRouted="false" />

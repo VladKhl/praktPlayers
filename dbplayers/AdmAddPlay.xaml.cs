@@ -97,7 +97,7 @@ namespace dbplayers
 
         private void back_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.GoBack();
+            NavigationService.Navigate(new AdmTP());
         }
 
         private void clubch_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -192,6 +192,11 @@ namespace dbplayers
                 photo = File.ReadAllBytes(ofdPicture.FileName);
                 choosephoto = true;
             }
+        }
+
+        private void addatru_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AdmAddAtributes());
         }
     }
 }

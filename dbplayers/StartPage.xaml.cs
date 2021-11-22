@@ -38,7 +38,7 @@ namespace dbplayers
         {
             try
             {
-                var log = (from auf in dataEntities.Accounts where auf.login == login.Text.ToLower() where auf.password == password.Text.ToLower() select auf.ID_role).First();
+                var log = (from auf in dataEntities.Accounts where auf.login == login.Text.ToLower() where auf.password == password.Text select auf.ID_role).First();
                 if (log == 1401)
                 {
                     MessageBox.Show("Вы вошли в админ-аккаунт");
@@ -80,7 +80,7 @@ namespace dbplayers
                         Accounts acc = new Accounts
                         {
                             login = login.Text.ToLower(),
-                            password = password.Text.ToLower(),
+                            password = password.Text,
                             ID_role = 1402
                         };
                         dataEntities.Accounts.Add(acc);

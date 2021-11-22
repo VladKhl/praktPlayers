@@ -13,37 +13,29 @@
     <Key>
       <PropertyRef Name="ID_agency" />
     </Key>
-    <Property Name="ID_agency" Type="int" Nullable="false" />
+    <Property Name="ID_agency" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name_agency" Type="varchar" MaxLength="50" />
-  </EntityType>
-  <EntityType Name="Cityes">
-    <Key>
-      <PropertyRef Name="ID_city" />
-    </Key>
-    <Property Name="ID_city" Type="int" Nullable="false" />
-    <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Clubs">
     <Key>
       <PropertyRef Name="ID_club" />
     </Key>
-    <Property Name="ID_club" Type="int" Nullable="false" />
+    <Property Name="ID_club" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name_club" Type="varchar" MaxLength="50" />
-    <Property Name="ID_city" Type="int" Nullable="false" />
     <Property Name="Photo_club" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="National_teams">
     <Key>
       <PropertyRef Name="ID_national_team" />
     </Key>
-    <Property Name="ID_national_team" Type="int" Nullable="false" />
+    <Property Name="ID_national_team" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name_national_team" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Nations">
     <Key>
       <PropertyRef Name="ID_nation" />
     </Key>
-    <Property Name="ID_nation" Type="int" Nullable="false" />
+    <Property Name="ID_nation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Photos">
@@ -57,7 +49,7 @@
     <Key>
       <PropertyRef Name="ID_place_birth" />
     </Key>
-    <Property Name="ID_place_birth" Type="int" Nullable="false" />
+    <Property Name="ID_place_birth" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Players">
@@ -117,7 +109,7 @@
     <Key>
       <PropertyRef Name="ID_technical_sponsor" />
     </Key>
-    <Property Name="ID_technical_sponsor" Type="int" Nullable="false" />
+    <Property Name="ID_technical_sponsor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name_sponsor" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Working_leg">
@@ -136,18 +128,6 @@
       </Principal>
       <Dependent Role="Accounts">
         <PropertyRef Name="ID_role" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Clubs_Cityes">
-    <End Role="Cityes" Type="Self.Cityes" Multiplicity="1" />
-    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cityes">
-        <PropertyRef Name="ID_city" />
-      </Principal>
-      <Dependent Role="Clubs">
-        <PropertyRef Name="ID_city" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -262,7 +242,6 @@
   <EntityContainer Name="Хранилище playersdbModelContainer">
     <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Agency" EntityType="Self.Agency" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Cityes" EntityType="Self.Cityes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="National_teams" EntityType="Self.National_teams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Nations" EntityType="Self.Nations" Schema="dbo" store:Type="Tables" />
@@ -277,10 +256,6 @@
     <AssociationSet Name="FK_Accounts_Role" Association="Self.FK_Accounts_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="Accounts" EntitySet="Accounts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Clubs_Cityes" Association="Self.FK_Clubs_Cityes">
-      <End Role="Cityes" EntitySet="Cityes" />
-      <End Role="Clubs" EntitySet="Clubs" />
     </AssociationSet>
     <AssociationSet Name="FK_Players_Agency" Association="Self.FK_Players_Agency">
       <End Role="Agency" EntitySet="Agency" />

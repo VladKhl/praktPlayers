@@ -9,21 +9,12 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cityes">
-      <EntityTypeMapping TypeName="playersdbModel.Cityes">
-        <MappingFragment StoreEntitySet="Cityes">
-          <ScalarProperty Name="ID_city" ColumnName="ID_city" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Clubs">
       <EntityTypeMapping TypeName="playersdbModel.Clubs">
         <MappingFragment StoreEntitySet="Clubs">
           <ScalarProperty Name="Photo_club" ColumnName="Photo_club" />
           <ScalarProperty Name="ID_club" ColumnName="ID_club" />
           <ScalarProperty Name="Name_club" ColumnName="Name_club" />
-          <ScalarProperty Name="ID_city" ColumnName="ID_city" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
