@@ -137,7 +137,7 @@
         </Style>
     </Page.Resources>
     <Grid Background="#FF000632">
-         
+
         <Border
             Width="776"
             Height="114"
@@ -190,8 +190,8 @@
                     FontFamily="Arial Rounded MT Bold"
                     FontSize="18"
                     Text="ЗНАЧЕНИЕ ПАРАМЕТРА"
-                    TextWrapping="Wrap"
-                    TextChanged="valapr_TextChanged"/>
+                    TextChanged="valapr_TextChanged"
+                    TextWrapping="Wrap" />
                 <Label
                     Canvas.Left="18"
                     Canvas.Top="66"
@@ -220,10 +220,10 @@
                     <ComboBoxItem Content="Ассисты" />
                     <ComboBoxItem Content="Рост" />
                     <ComboBoxItem Content="Вес" />
-                    <ComboBoxItem Content="Дата рождения" />
+                    <ComboBoxItem Content="Родился" />
                     <ComboBoxItem Content="Цена" />
-                    <ComboBoxItem Content="Желтые карточки" />
-                    <ComboBoxItem Content="Красные карточки" />
+                    <ComboBoxItem Content="ЖК" />
+                    <ComboBoxItem Content="КК" />
                 </ComboBox>
                 <Button
                     x:Name="group"
@@ -253,12 +253,15 @@
             Width="952"
             Height="375"
             Margin="20,147,0,0"
-             CanUserAddRows="False" CanUserReorderColumns="False"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
+            CanUserAddRows="False"
+            CanUserDeleteRows="False"
+            CanUserReorderColumns="False"
+            CanUserResizeColumns="False"
+            CanUserResizeRows="False"
             FontFamily="Arial Rounded MT Bold"
             HorizontalGridLinesBrush="#e9e9e9"
-            CanUserResizeRows="False" CanUserResizeColumns="False" CanUserDeleteRows="False"
             Style="{DynamicResource DataGridStyle1}"
             VerticalGridLinesBrush="#e9e9e9">
             <DataGrid.ItemContainerStyle>
